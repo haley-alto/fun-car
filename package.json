@@ -1,0 +1,24 @@
+{
+  "name": "fun-car",
+  "version": "1.0.0",
+  "description": "car tutorial with caitlin and haley",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haley-alto/fun-car.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haley-alto/fun-car/issues"
+  },
+  "homepage": "https://github.com/haley-alto/fun-car#readme",
+
+
+  "dependencies": {
+    "three": "^0.146.0"
+  }
+}
