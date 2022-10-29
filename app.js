@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 // import { GLTFLoader} from 'https://unpkg.com/three@0.146.0/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 // const hlight = new AmbientLight (0x404040,100);
 // const container = document.querySelector('#scene-container');
 var scene, camera, renderer, cube, controls;
@@ -35,6 +35,26 @@ function init() {
     }
 
     scene.add(board);
+
+    const loader = new GLTFLoader();
+    loader.load('checker.glb', function (gltf) {
+
+        gltf.scene.scale.set(gltf.scene.scale.x * 0.4, gltf.scene.scale.y * 0.2, gltf.scene.scale.z * 0.4);
+        gltf.scene.position.y += gltf.scene.scale.y;
+        gltf.scene.position.x = 1;
+        gltf.scene.position.z = 1;
+
+        scene.add(gltf.scene);
+        // const puckMesh = gltf.scene.children.find((child) => child.name === "puck");
+        // puckMesh.scale.set(puckMesh.scale.x * 0.4, )
+        // puckMesh.scale.set(puckMesh.scale.x * 0.4, puckMesh.scale.y * 0.4, puckMesh.scale.z * 0.4);
+        // puckMesh.position.y += puckMesh.scale.y;
+        // scene.add(puckMesh);
+    });
+
+    const light = new THREE.PointLight(0xffffff, 2, 200);
+    light.position.set(100,0,4.5);
+    scene.add(light);
 
     camera.position.y = 1;
     camera.position.z = 3;
